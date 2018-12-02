@@ -1,24 +1,22 @@
 import React, { useState } from 'react'
-import Button from './Button'
-import Wrapper from './Wrapper'
+import styled from 'styled-components'
+import CartButton from './CartButton'
 import Menu from './Menu'
-import ItemsBadge from './ItemsBadge'
 
-const Cart = (props) => {
-  const [isOpened, setIsOpened] = useState(false)
-  const openMenu = () => setIsOpened(true)
-  const closeMenu = () => setIsOpened(false)
-  const itemsCount = Object.keys(props.cartItems).length
+const Cart = ({ className, ...props }) => {
+  const [isOpened, setIsOpened] = useState(false);
+  const openMenu = () => setIsOpened(true);
+  const closeMenu = () => setIsOpened(false);
+  const itemsCount = Object.keys(props.cartItems).length;
 
   return (
-    <Wrapper>
-      <Button onClick={openMenu}>
-        Cart
-        { !!itemsCount && <ItemsBadge>{ itemsCount }</ItemsBadge> }
-      </Button>
-      { isOpened && <Menu { ...props } closeMenu={closeMenu} /> }
-    </Wrapper>
+    <div className={className}>
+      <CartButton openMenu={openMenu} itemsCount={itemsCount} />
+      { isOpened && <Menu {...props} closeMenu={closeMenu} /> }
+    </div>
   )
 }
 
-export default Cart;
+export default styled(Cart)`
+  position: relative;
+`

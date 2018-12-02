@@ -9,16 +9,16 @@ import products from './products'
 const defaultTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 
 const App = () => {
-  const [cartItems, setCartItems] = useState({ 1: 1, 2: 2})
+  const [theme, setTheme] = useState(defaultTheme);
+  const toggleTheme = () => setTheme(theme === 'light' ? 'dark' : 'light')
+  const currentTheme = theme === 'light' ? light : dark
+
+  const [cartItems, setCartItems] = useState({})
   const addToCart = (productId) => {
-    cartItems[productId] = cartItems[productId] ? ++cartItems[productId] : 1
+    cartItems[productId] = cartItems[productId] ? cartItems[productId] + 1 : 1
     setCartItems({ ...cartItems })
   }
   const clearCart = () => setCartItems({})
-
-  const [theme, setTheme] = useState(defaultTheme);
-  const currentTheme = theme === 'light' ? light : dark
-  const toggleTheme = () => setTheme(theme === 'light' ? 'dark' : 'light')
 
   return (
     <ThemeProvider theme={currentTheme}>
@@ -30,7 +30,10 @@ const App = () => {
           cartItems={cartItems}
           products={products}
         >
-          <ProductList products={products} addToCart={addToCart} />
+          <ProductList
+            products={products}
+            addToCart={addToCart}
+          />
         </Layout>
       </Fragment>
     </ThemeProvider>

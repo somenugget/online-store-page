@@ -4,22 +4,20 @@ import Image from './Image'
 import Body from './Body'
 import AddToCartButton from './AddToCartButton'
 
-const Product = ({ className, product, addToCart }) => {
-  return (
-    <div className={className}>
-      <Image src={product.imageUrl} alt={product.title}/>
-      <Body product={product}/>
-      <AddToCartButton addToCart={() => addToCart(product.id)}/>
-    </div>
-  )
-}
+const Product = ({ className, product, addToCart }) => (
+  <div className={className}>
+    <Image src={product.imageUrl} alt={product.title}/>
+    <Body product={product}/>
+    <AddToCartButton addToCart={addToCart}/>
+  </div>
+)
 
 export default styled(Product)`
   box-shadow: 0px 0px 1px 0px ${({ theme }) => theme.color};
   border-radius: .2em;
   margin: 1em 0;
   max-width: calc(25% - .8em);
-  padding-bottom: 3em;
+  padding-bottom: 2.25em;
   position: relative;
 
   &:nth-child(4n+1),

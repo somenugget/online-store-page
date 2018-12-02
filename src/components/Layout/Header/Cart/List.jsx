@@ -1,19 +1,26 @@
 import React from 'react'
+import styled from 'styled-components'
 import ListItem from './ListItem'
-import ListWrapper from './ListWrapper'
 
-const List = ({ cartItems, products }) => {
-  return (
-    <ListWrapper>
-      { Object.keys(cartItems).map((productId) => {
-        const product = products.find(({ id }) => id === productId)
+const List = ({ className, cartItems, products }) => (
+  <ul className={className}>
+    {Object.keys(cartItems).map(productId => {
+      const product = products.find(({ id }) => id === productId);
 
-        if (!product) return null
+      if (!product) return null;
 
-        return <ListItem key={productId} product={product} quantity={cartItems[productId]} />
-      }) }
-    </ListWrapper>
-  )
-}
+      return (
+        <ListItem
+          key={productId}
+          product={product}
+          quantity={cartItems[productId]}
+        />
+      )
+    })}
+  </ul>
+)
 
-export default List
+export default styled(List)`
+  padding: 0;
+  margin: 0;
+`
