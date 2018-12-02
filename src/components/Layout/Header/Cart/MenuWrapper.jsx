@@ -8,4 +8,5 @@ export default styled.div`
   position: absolute
   top: 3.25em
   width: 20em
+  z-index: 2
 `

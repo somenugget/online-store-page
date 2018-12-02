@@ -3,12 +3,13 @@ import { ThemeProvider }  from 'styled-components'
 
 import GlobalStyle, { light, dark } from './theme/GlobalStyle';
 import Layout from './components/Layout'
+import ProductList from './components/ProductList'
 import products from './products'
 
 const App = () => {
   const [cartItems, setCartItems] = useState({ 1: 1, 2: 2})
   const addToCart = (productId) => {
-    cartItems[productId] = cartItems[productId] ? cartItems[productId]++ : 1
+    cartItems[productId] = cartItems[productId] ? ++cartItems[productId] : 1
     setCartItems({ ...cartItems })
   }
   const clearCart = () => setCartItems({})
@@ -27,7 +28,7 @@ const App = () => {
           cartItems={cartItems}
           products={products}
         >
-          Products list will be here
+          <ProductList products={products} addToCart={addToCart} />
         </Layout>
       </Fragment>
     </ThemeProvider>

@@ -37,7 +37,7 @@ export default [{
   id: '3',
   title: 'Samsung Galaxy S8+ 64GB Phone- 6.2" display - AT&T Unlocked (Midnight Black) (Certified Refurbished)',
   price: 499.95,
-  imageUrl: 'https://images-na.ssl-images-amazon.com/images/I/61GM03TYn0L._SY879_.jpg',
+  imageUrl: 'https://images-na.ssl-images-amazon.com/images/I/414%2BUQh8UIL.jpg',
   description: `
     <ul>
       <li>
