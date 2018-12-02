@@ -2,6 +2,7 @@ import React, { Fragment, useEffect } from 'react'
 import MenuWrapper from './MenuWrapper'
 import List from './List'
 import ClearCartButton from './ClearCartButton'
+import EmptyCart from './EmptyCart'
 
 let menu = null;
 
@@ -20,12 +21,12 @@ const Menu = ({ cartItems, clearCart, products, closeMenu }) => {
 
   return (
     <MenuWrapper ref={ (node) => menu = node }>
-      { !!Object.keys(cartItems).length ?
+      { Object.keys(cartItems).length ?
         <Fragment>
           <List cartItems={cartItems} products={products} />
           <ClearCartButton onClick={clearCart}>clear cart</ClearCartButton>
         </Fragment> :
-       'Your cart is empty' }
+       <EmptyCart/> }
     </MenuWrapper>
   )
 }

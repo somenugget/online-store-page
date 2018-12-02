@@ -6,6 +6,8 @@ import Layout from './components/Layout'
 import ProductList from './components/ProductList'
 import products from './products'
 
+const defaultTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+
 const App = () => {
   const [cartItems, setCartItems] = useState({ 1: 1, 2: 2})
   const addToCart = (productId) => {
@@ -14,7 +16,7 @@ const App = () => {
   }
   const clearCart = () => setCartItems({})
 
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState(defaultTheme);
   const currentTheme = theme === 'light' ? light : dark
   const toggleTheme = () => setTheme(theme === 'light' ? 'dark' : 'light')
 

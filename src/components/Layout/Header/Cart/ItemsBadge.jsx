@@ -5,6 +5,6 @@ export default styled.span`
   border-radius: .25em;
   color: ${({ theme }) => theme.color};
   display: inline-block;
-  padding: .5em;
+  padding: 0 .5em;
   margin-left: 1em;
 `

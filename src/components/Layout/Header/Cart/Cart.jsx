@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Button from '../../../Button'
+import Button from './Button'
 import Wrapper from './Wrapper'
 import Menu from './Menu'
 import ItemsBadge from './ItemsBadge'
